@@ -1,4 +1,4 @@
-package github.com.rogozkin.myed;
+package github.com.rogozkin.myed.xmlReader;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

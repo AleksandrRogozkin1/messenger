@@ -1,6 +1,9 @@
 package github.com.rogozkin.myed;
 
 
+import github.com.rogozkin.myed.clientServices.Message;
+import github.com.rogozkin.myed.xmlReader.XMLReader;
+
 import java.io.*;
 import java.net.Socket;
 import java.text.SimpleDateFormat;

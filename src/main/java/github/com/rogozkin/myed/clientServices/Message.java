@@ -1,4 +1,4 @@
-package github.com.rogozkin.myed;
+package github.com.rogozkin.myed.clientServices;
 
 
 public class Message {
