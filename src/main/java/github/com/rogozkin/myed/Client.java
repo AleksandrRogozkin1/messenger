@@ -39,7 +39,7 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             while (socket.isConnected()) {
                 String messageToSend = scanner.nextLine();
-                bufferedWriter.write(message.getDate() + ":" + message.getName() + ": " + messageToSend+"\nEnter your message: ");
+                bufferedWriter.write(message.getDate() + ":" + message.getName() + ": " + messageToSend + "\nEnter your message: ");
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
@@ -94,13 +94,15 @@ public class Client {
 
             System.out.println("Enter your status(sleep,eat,work): ");
             String status = scanner.nextLine();
-
+            String host = PropertyReader.getHostForSocket();
+            int port = PropertyReader.getPortForSocket();
             System.out.println("Enter your message: ");
-            Socket socket = new Socket("localhost", 1234);
+            Socket socket = new Socket(host, port);
 
             String ip = socket.getLocalAddress().getHostAddress();
 
             String timeStamp = new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime());
+
             Message message1 = new Message(username, status, ip, timeStamp);
             Client client = new Client(socket, message1);
             client.listenForMessage();
