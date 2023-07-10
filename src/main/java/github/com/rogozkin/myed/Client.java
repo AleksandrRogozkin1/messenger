@@ -39,7 +39,7 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             while (socket.isConnected()) {
                 String messageToSend = scanner.nextLine();
-                bufferedWriter.write(message.getDate() + ":" + message.getName() + ": " + messageToSend + "\nEnter your message: ");
+                bufferedWriter.write( message.getName() + ": " + messageToSend +" "+ message.getDate() +  "\nEnter your message: ");
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
@@ -85,19 +85,20 @@ public class Client {
 
         Scanner scanner = new Scanner(System.in);
 
+
         System.out.println("Enter chat password: ");
         String password = scanner.nextLine();
 
-        if (password.equalsIgnoreCase("1234")) {
+
+        if (password.equalsIgnoreCase(XMLReader.SERVER_PASSWORD)) {
             System.out.println("Enter your name: ");
             String username = scanner.nextLine();
 
             System.out.println("Enter your status(sleep,eat,work): ");
             String status = scanner.nextLine();
-            String host = PropertyReader.getHostForSocket();
-            int port = PropertyReader.getPortForSocket();
+
             System.out.println("Enter your message: ");
-            Socket socket = new Socket(host, port);
+            Socket socket = new Socket(XMLReader.HOST_IP, XMLReader.PORT);
 
             String ip = socket.getLocalAddress().getHostAddress();
 

@@ -38,8 +38,8 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
-        int port = PropertyReader.getPortForSocket();
-        ServerSocket serverSocket = new ServerSocket(port);
+
+        ServerSocket serverSocket = new ServerSocket(XMLReader.PORT);
         Server server = new Server(serverSocket);
         server.startServer();
 
